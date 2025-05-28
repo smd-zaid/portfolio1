@@ -2,190 +2,279 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shaik Mohammed Zaid | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shaik Mohammed Zaid - Portfolio</title>
   <style>
     :root {
-      --light: #F2F2F2;
-      --beige: #EAE4D5;
-      --muted: #B6B09F;
-      --black: #000000;
+      --primary: #FFC300;
+      --bg: #ffffff;
+      --text: #222;
+      --card-bg: #ffffff;
+    }
+
+    body.dark {
+      --bg: #222;
+      --text: #fff;
+      --card-bg: #333;
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--light);
-      color: var(--black);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
+      background: var(--primary);
+      color: black;
+      padding: 2rem;
       text-align: center;
-      padding: 50px 20px;
-      background: var(--beige);
+      position: relative;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: black;
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
       font-weight: bold;
-      color: var(--black);
-      transition: transform 0.6s ease, color 0.6s ease;
+      border: none;
     }
 
-    header h1:hover {
-      transform: scale(1.05);
-      color: var(--muted);
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: var(--card-bg);
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-
-    .linkedin-button {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: var(--black);
-      color: var(--light);
+    nav a {
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
+      color: var(--primary);
       font-weight: bold;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      transition: color 0.3s;
     }
 
-    .linkedin-button:hover {
-      background-color: var(--muted);
-      color: var(--black);
-      transform: scale(1.05);
+    nav a:hover {
+      color: #000;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
     }
 
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: var(--beige);
-      border-left: 5px solid var(--muted);
-      border-radius: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 3rem;
       opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 0.8s ease forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform: translateY(30px);
+      transition: all 0.5s ease-in-out;
     }
 
-    section:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    section:nth-child(2) { animation-delay: 0.3s; }
-    section:nth-child(3) { animation-delay: 0.6s; }
-    section:nth-child(4) { animation-delay: 0.9s; }
-    section:nth-child(5) { animation-delay: 1.2s; }
-    section:nth-child(6) { animation-delay: 1.5s; }
-    section:nth-child(7) { animation-delay: 1.8s; }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
     }
 
-    section h2 {
-      font-size: 1.8rem;
-      color: var(--black);
-      margin-bottom: 10px;
+    .skills, .certifications, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, background 0.3s;
     }
 
-    ul li {
-      margin-bottom: 12px;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .links a {
+      display: block;
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+      color: var(--primary);
+    }
+
+    .btn-resume {
+      display: inline-block;
+      background: var(--primary);
+      color: black;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
     }
 
     footer {
+      background: var(--primary);
+      color: black;
       text-align: center;
-      margin: 40px 0 20px;
-      font-size: 0.9rem;
-      color: var(--muted);
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Shaik Mohammed Zaid</h1>
-    <p>Kurnool, Andhra Pradesh | +91-9390797590 | <a href="mailto:shaikmohammedzaid83@gmail.com" style="color: var(--muted); text-decoration: none;">shaikmohammedzaid83@gmail.com</a></p>
-    <a href="https://www.linkedin.com/in/smdzaid" target="_blank" class="linkedin-button">Connect on LinkedIn</a>
-  </header>
+<header>
+  <h1>Shaik Mohammed Zaid</h1>
+  <p>Passionate Web Developer | AI Enthusiast | Curious Coder</p>
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
+</header>
 
-  <section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+  <section id="about">
+    <h2>About</h2>
+    <p>"Passionate about coding and curious about the ever-evolving world of technology. I have a keen interest in web development, artificial intelligence, and computer vision. I have developed my skills through hands-on projects and earned certifications in various courses."</p>
+  </section>
+
+  <section id="education">
     <h2>Education</h2>
     <ul>
-      <li><strong>B.Tech in Computer Science and Engineering</strong>, G Pullaiah College of Engineering and Technology (June 2021 – June 2025) | CGPA: 8.25</li>
+      <li><strong>G Pullaiah College of Engineering and Technology</strong> - B.Tech in Computer Science and Engineering | CGPA: 8.25</li>
     </ul>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript, React.js, AWS</li>
-      <li>DSA (Basic), Computer Networks, DBMS, OOPS</li>
-    </ul>
+    <div class="skills">
+      <div class="card">HTML, CSS, JavaScript</div>
+      <div class="card">React.js</div>
+      <div class="card">AWS</div>
+      <div class="card">Java, Python</div>
+      <div class="card">DBMS, MySQL</div>
+      <div class="card">Computer Networks</div>
+    </div>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li><strong>Nexus Voting System (Mar 2025):</strong> Secure polling app with OTP, face recognition, fingerprint authentication, and Firebase.</li>
-      <li><strong>Driver’s Drowsiness Detection (Sept 2023):</strong> Real-time drowsiness detection using OpenCV, DLib, and alert systems.</li>
-    </ul>
+    <div class="projects">
+      <div class="card">
+        <h3>Nexus Voting System</h3>
+        <p>Developed an Android app enabling secure, remote voting using OTP, face recognition, and fingerprint scanning. Implemented Firebase Realtime Database for real-time vote syncing and transparency. Achieved biometric voter validation through Firebase ML Kit and on-device fingerprint APIs.</p>
+      </div>
+      <div class="card">
+        <h3>Driver’s Drowsiness Detection</h3>
+        <p>Developed a Drowsiness Detection System using computer vision techniques to enhance road safety. Implemented facial landmark detection and eye aspect ratio calculations using OpenCV and dlib. Integrated an audio alert system and a web module for real-time driver alerts.</p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Internship</h2>
-    <ul>
-      <li><strong>Python Development Intern</strong> at CodeClause (Sept 2024 – Dec 2024): Developed Python apps, automation scripts, API integration, and debugging.</li>
-    </ul>
-  </section>
-
-  <section>
+  <section id="certifications">
     <h2>Certifications</h2>
+    <div class="certifications">
+      <div class="card">ICMED 4th International Conference – Participation</div>
+      <div class="card">Data Structures and Algorithms using Java (NPTEL) – ELITE</div>
+      <div class="card">AICTE Cloud Virtual Internship – 2 months</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Internships & Experience</h2>
+    <p><strong>CodeClause (Remote)</strong> – Python Development Intern (Sept 2024 – Dec 2024)</p>
     <ul>
-      <li>ICMED 4th International Conference – Participation</li>
-      <li>Data Structures and Algorithms using Java (NPTEL) – ELITE</li>
-      <li>AICTE Cloud Virtual Internship – 2 months</li>
+      <li>Developed Python-based applications and automation scripts.</li>
+      <li>Worked with libraries like Pandas, NumPy, and Flask.</li>
+      <li>Collaborated with a team to debug and improve code efficiency.</li>
+      <li>Gained experience in API development, database integration, and web deployment.</li>
+    </ul>
+    <h3>Paper Publication</h3>
+    <ul>
+      <li>Thyroid Detection Using Machine Learning Algorithms – Published in E3S Web of Conferences (SCOPUS Indexed)</li>
+    </ul>
+    <h3>Extracurricular</h3>
+    <ul>
+      <li><strong>TEDxGPCET, Kurnool</strong> – Operations Lead (Mar 2024 – Aug 2024)</li>
+      <li><strong>SIH 2022 – Smart India Hackathon</strong> – Official College Volunteer</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Extracurricular</h2>
-    <ul>
-      <li><strong>TEDxGPCET (Mar 2024 – Aug 2024):</strong> Operations Lead - Organized TEDx event with 21 speakers.</li>
-      <li><strong>SIH 2022:</strong> Official College Volunteer for Smart India Hackathon.</li>
-    </ul>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="links">
+      <a href="mailto:shaikmohammedzaid83@gmail.com">shaikmohammedzaid83@gmail.com</a>
+      <a href="https://github.com/smd-zaid" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/smdzaid" target="_blank">LinkedIn</a>
+      <a class="btn-resume" href="your_resume_link_here.pdf" download>📄 Download Resume</a>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 Shaik Mohammed Zaid. All rights reserved.
-  </footer>
+</div>
+
+<footer>
+  <p>© 2025 Shaik Mohammed Zaid. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+  }
+
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
