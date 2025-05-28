@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaik Mohammed Zaid | Portfolio</title>
+  <style>
+    :root {
+      --light: #F2F2F2;
+      --beige: #EAE4D5;
+      --muted: #B6B09F;
+      --black: #000000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: var(--beige);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--black);
+      transition: transform 0.6s ease, color 0.6s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.05);
+      color: var(--muted);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .linkedin-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: var(--black);
+      color: var(--light);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .linkedin-button:hover {
+      background-color: var(--muted);
+      color: var(--black);
+      transform: scale(1.05);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: var(--beige);
+      border-left: 5px solid var(--muted);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    section:nth-child(2) { animation-delay: 0.3s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
+    section:nth-child(4) { animation-delay: 0.9s; }
+    section:nth-child(5) { animation-delay: 1.2s; }
+    section:nth-child(6) { animation-delay: 1.5s; }
+    section:nth-child(7) { animation-delay: 1.8s; }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shaik Mohammed Zaid</h1>
+    <p>Kurnool, Andhra Pradesh | +91-9390797590 | <a href="mailto:shaikmohammedzaid83@gmail.com" style="color: var(--muted); text-decoration: none;">shaikmohammedzaid83@gmail.com</a></p>
+    <a href="https://www.linkedin.com/in/smdzaid" target="_blank" class="linkedin-button">Connect on LinkedIn</a>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>B.Tech in Computer Science and Engineering</strong>, G Pullaiah College of Engineering and Technology (June 2021 – June 2025) | CGPA: 8.25</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript, React.js, AWS</li>
+      <li>DSA (Basic), Computer Networks, DBMS, OOPS</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Nexus Voting System (Mar 2025):</strong> Secure polling app with OTP, face recognition, fingerprint authentication, and Firebase.</li>
+      <li><strong>Driver’s Drowsiness Detection (Sept 2023):</strong> Real-time drowsiness detection using OpenCV, DLib, and alert systems.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Internship</h2>
+    <ul>
+      <li><strong>Python Development Intern</strong> at CodeClause (Sept 2024 – Dec 2024): Developed Python apps, automation scripts, API integration, and debugging.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>ICMED 4th International Conference – Participation</li>
+      <li>Data Structures and Algorithms using Java (NPTEL) – ELITE</li>
+      <li>AICTE Cloud Virtual Internship – 2 months</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Extracurricular</h2>
+    <ul>
+      <li><strong>TEDxGPCET (Mar 2024 – Aug 2024):</strong> Operations Lead - Organized TEDx event with 21 speakers.</li>
+      <li><strong>SIH 2022:</strong> Official College Volunteer for Smart India Hackathon.</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Shaik Mohammed Zaid. All rights reserved.
+  </footer>
+
+</body>
+</html>
